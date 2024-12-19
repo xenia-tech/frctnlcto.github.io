@@ -33,81 +33,28 @@
         line-height: 1.5;
     }
 
-    /* Skills and badges */
-    .badge {
-        font-size: 0.8rem !important;
-        white-space: normal;
-        text-align: center;
-        margin: 2px;
-    }
-
-    .d-flex.justify-content-center.fs-2.gap-4 {
-        flex-wrap: wrap;
-        gap: 0.5rem !important;
-    }
-
-    /* Buttons and navigation */
-    .btn-lg {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        width: 100%;
-        margin: 0.25rem 0;
-    }
-
-    .d-sm-flex {
-        flex-wrap: wrap;
-        gap: 0.5rem !important;
-    }
-
-    /* Project cards */
+    /* Cards and Carousel */
     .card {
         margin-bottom: 1rem;
+        border: none !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
     }
 
     .card-body {
-        padding: 1rem;
+        padding: 1.5rem !important;
     }
 
-    /* Navigation */
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-
-    .navbar-nav {
-        margin-top: 0.5rem;
-    }
-
-    /* Calendly widget */
-    .calendly-inline-widget {
-        height: 700px !important;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Experience and Resume Cards Mobile Layout */
-    .experience-card {
-        flex-direction: column;
-        margin-bottom: 1rem;
-        border: none;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .experience-card .company-logo {
+    .company-logo {
         width: 100%;
         text-align: center;
-        padding: 1rem;
+        margin-bottom: 1.5rem;
         display: block !important;
     }
 
-    .experience-card .company-logo img {
-        max-width: 150px;
+    .company-logo img {
+        max-width: 120px !important;
         height: auto;
         margin: 0 auto;
-    }
-
-    .experience-card .card-body {
-        padding: 1rem;
-        width: 100%;
     }
 
     /* Carousel Styles */
@@ -136,10 +83,35 @@
     }
 
     .carousel-experience .carousel-item {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 
-    /* Swipe hint animation */
+    .carousel-item .card {
+        margin: 0;
+    }
+
+    /* Project and Experience Cards */
+    .experience-card, .project-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .experience-card .row, .project-card .row {
+        flex-direction: column;
+    }
+
+    .experience-card .col, .project-card .col {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .experience-card .col-lg-8, .project-card .col-lg-8 {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Swipe hint */
     .swipe-hint {
         text-align: center;
         color: #666;
@@ -152,5 +124,14 @@
         0% { opacity: 0.4; }
         50% { opacity: 1; }
         100% { opacity: 0.4; }
+    }
+
+    /* Navigation */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav {
+        margin-top: 0.5rem;
     }
 }
