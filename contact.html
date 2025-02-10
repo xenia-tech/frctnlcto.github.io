@@ -21,19 +21,26 @@
         <script src="https://www.google.com/recaptcha/api.js?render=6Lc_MNIqAAAAAGG1v3WawtyseOoflNKaXUMXIwno"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                console.log('Form script initialized');
                 const form = document.getElementById('contactForm');
                 form.addEventListener('submit', function(e) {
+                    console.log('Form submission started');
                     e.preventDefault();
                     grecaptcha.ready(function() {
+                        console.log('reCAPTCHA ready');
                         grecaptcha.execute('6Lc_MNIqAAAAAGG1v3WawtyseOoflNKaXUMXIwno', {action: 'submit'}).then(function(token) {
+                            console.log('reCAPTCHA token generated');
                             // Add the token to the form
                             const input = document.createElement('input');
                             input.type = 'hidden';
                             input.name = 'g-recaptcha-response';
                             input.value = token;
                             form.appendChild(input);
+                            console.log('Token added to form, submitting...');
                             // Submit the form
                             form.submit();
+                        }).catch(function(error) {
+                            console.error('reCAPTCHA error:', error);
                         });
                     });
                 });
