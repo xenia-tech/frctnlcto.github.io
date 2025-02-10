@@ -17,6 +17,28 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/mobile.css" rel="stylesheet" />
+        <!-- reCAPTCHA v3 -->
+        <script src="https://www.google.com/recaptcha/api.js?render=6Lc_MNIqAAAAAGG1v3WawtyseOoflNKaXUMXIwno"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('contactForm');
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('6Lc_MNIqAAAAAGG1v3WawtyseOoflNKaXUMXIwno', {action: 'submit'}).then(function(token) {
+                            // Add the token to the form
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'g-recaptcha-response';
+                            input.value = token;
+                            form.appendChild(input);
+                            // Submit the form
+                            form.submit();
+                        });
+                    });
+                });
+            });
+        </script>
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -52,7 +74,7 @@
                                     <input type="hidden" name="_bcc" value="will@xenia.tech">
                                     <input type="hidden" name="_subject" value="New Contact Form Submission - FrctnlCTO">
                                     <input type="hidden" name="_template" value="table">
-                                    <input type="hidden" name="_captcha" value="false">
+                                    <input type="hidden" name="_captcha" value="true">
                                     <input type="hidden" name="_next" value="https://frctnlcto.com/thank-you.html">
                                     
                                     <!-- Name input-->
