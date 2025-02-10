@@ -17,42 +17,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/mobile.css" rel="stylesheet" />
-        <!-- reCAPTCHA v3 -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6LfYMNIqAAAAAJfCJKRoJgXTYuDWRZ_hH5MHYT-n"></script>
-        <script>
-            window.addEventListener('load', function() {
-                console.log('Form script initialized');
-                const form = document.getElementById('contactForm');
-                if (form) {
-                    form.addEventListener('submit', function(e) {
-                        console.log('Form submission started');
-                        e.preventDefault();
-                        grecaptcha.ready(function() {
-                            console.log('reCAPTCHA ready');
-                            grecaptcha.execute('6LfYMNIqAAAAAJfCJKRoJgXTYuDWRZ_hH5MHYT-n', {action: 'submit'}).then(function(token) {
-                                console.log('reCAPTCHA token generated');
-                                // Add the token to the form
-                                let tokenInput = form.querySelector('input[name="g-recaptcha-response"]');
-                                if (!tokenInput) {
-                                    tokenInput = document.createElement('input');
-                                    tokenInput.type = 'hidden';
-                                    tokenInput.name = 'g-recaptcha-response';
-                                    form.appendChild(tokenInput);
-                                }
-                                tokenInput.value = token;
-                                console.log('Token added to form, submitting...');
-                                // Submit the form
-                                form.submit();
-                            }).catch(function(error) {
-                                console.error('reCAPTCHA error:', error);
-                            });
-                        });
-                    });
-                } else {
-                    console.error('Contact form not found');
-                }
-            });
-        </script>
+        <!-- reCAPTCHA v2 -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -111,6 +77,10 @@
                                         <textarea class="form-control" id="message" name="message" type="text" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
                                         <label for="message">Message</label>
                                     </div>
+                                    <!-- reCAPTCHA v2 -->
+                                    <div class="mb-3 d-flex justify-content-center">
+                                        <div class="g-recaptcha" data-sitekey="6LdGtNIqAAAAAFjGwKbtLsBmISFUWLR4sQuH90By"></div>
+                                    </div>
                                     <!-- Submit Button-->
                                     <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
                                 </form>
@@ -147,13 +117,13 @@
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; FrctnlCTO 2024</div></div>
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; 2024 Fractional CTO. All rights reserved.</div></div>
                     <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
+                        <a class="small" href="privacy.html">Privacy</a>
                         <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
+                        <a class="small" href="terms.html">Terms</a>
                         <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
+                        <a class="small" href="contact.html">Contact</a>
                     </div>
                 </div>
             </div>
